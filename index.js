@@ -1,53 +1,35 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+const fs = require('fs')
+const inquirer = require('inquirer')
+const questions = require('./lib/questions')
+const {Circle, Triangle, Square } = require('./lib/shape')
 
-
-
-
-
-
-
-
-// Array of questions
-const questions = [
-    {
-        type: "input",
-        name: "text",
-        message: "Enter up to (3) Characters:",
-        validate: function (input) {
-            if (input.lenght <= 3) {
-                return true;
-            }
-            else {
-                return "Must be 3 characters or less"
-            }
-        }
-    },
-    {
-        type: "input",
-        name: "textColor",
-        message: "Enter a color for text",
-        default: "Red"
-    },
-    {
-        type: "input",
-        name: "shapeColor",
-        message: "Enter a color for shape",
-        default: "Blue"
-    },
-    {
-        type: "list",
-        name: "shape",
-        message: "What shape do you want the logo to be?",
-        choices: ['Circle', 'Square', 'Triangle'],
-        default: "Square"
+function buildLogo(shapeInfo) {
+    const { text, textColor, shape, shapeColor } = shapeInfo
+    let shapeRendered;
+    switch (shape) {
+        case "Circle":
+            const circleSelected = new Circle(text, textColor, shape, shapeColor)
+            shapeRendered = circleSelected.render()
+            break;
+        case "Triangle":
+            const triangleSelected = new Triangle(text, textColor, shape, shapeColor)
+            shapeRendered = triangleSelected.render()
+            break;
+        case "Square":
+            const squareSelected = new Square(text, textColor, shape, shapeColor)
+            shapeRendered = squareSelected.render()
+            break;
     }
-];
+    return shapeRendered
+}
 
 function init() {
-
-
-
-
-
+    inquirer.prompt(questions)
+        .then((answers) => {
+            fs.writeFile('./examples/logo.svg', buildLogo(answers), err => console.log(err))
+            console.log('Your new logo.svg has been created')
+        })
+        .catch((err) => console.log(err))
 }
+
+init()
