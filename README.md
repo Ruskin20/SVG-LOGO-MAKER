@@ -23,9 +23,9 @@ You could find a video on how to utilize the application below:
 Users will need to install the npm library for inquirer, the jest libraries and initialize the environment.
 Set-Up Commands:
 
-> npm i inquirer@8.2.4
-> npm i jest
-> npm init -y
+- `npm i inquirer@8.2.4`
+- ` npm i jest`
+- `npm init -y`
 
 ## Visuals
 
