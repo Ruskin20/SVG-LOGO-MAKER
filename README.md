@@ -24,7 +24,7 @@ Users will need to install the npm library for inquirer, the jest libraries and 
 Set-Up Commands:
 
 - `npm i inquirer@8.2.4`
-- `npm i jest`
+- ` npm i jest`
 - `npm init -y`
 
 ## Visuals
