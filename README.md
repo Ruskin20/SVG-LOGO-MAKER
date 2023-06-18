@@ -17,6 +17,7 @@ This is a Node.js command-line application that takes in user input to generate 
 ## Usage
 
 You could find a video on how to utilize the application below:
+[Click here for video](https://drive.google.com/file/d/1yVFH12vr5uYyB9d8sRDr9ldKr0uvVaIv/view)
 
 ## Installation
 
